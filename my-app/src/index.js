@@ -5,6 +5,7 @@ import './index.css';
 class Square extends React.Component{
     
     render(){
+        console.log("square renedered!!");
         return (
             <button className="square"
                     onClick={
@@ -29,7 +30,7 @@ class Board extends React.Component{
     }
 
     handleClick(i){
-        console.log("handle click called!");
+        console.log("handle click callled!");
 
         const squares = this.state.squares.slice();
         squares[i] = 'X';
