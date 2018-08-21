@@ -20,7 +20,7 @@ class Square extends React.Component{
                             this.setState({value:'X'})
                         }
                     }>
-                {this.state.value}
+                {this.props.value}
             </button>
         );
     }
@@ -32,12 +32,12 @@ class Board extends React.Component{
         super(props);
 
         this.state = {
-            squares: Array(9).fill(null),
+            squares: Array(9).fill(1),
         }
     }
 
     renderSquare(i){
-        return <Square value={i} />;
+        return <Square value={this.state.squares[i]} />;
     }
 
     render(){
