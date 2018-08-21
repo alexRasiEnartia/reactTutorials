@@ -28,8 +28,13 @@ class Board extends React.Component{
         }
     }
 
-    handleClick(){
+    handleClick(i){
         console.log("handle click called!");
+
+        const squares = this.state.squares.slice();
+        squares[i] = 'X';
+        this.setState({squares:squares});
+
     }
 
     renderSquare(i){
