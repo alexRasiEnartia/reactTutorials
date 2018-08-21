@@ -7,7 +7,7 @@ class Square extends React.Component{
     constructor(props){
         super(props);//always as in javascript subclasses ( first too)
 
-        this.alex = {
+        this.state = {
             value:null,
         }
     }
@@ -17,16 +17,25 @@ class Square extends React.Component{
             <button className="square"
                     onClick={
                         () => {
-                            this.setAlex({value:'X'})
+                            this.setState({value:'X'})
                         }
                     }>
-                {this.alex.value}
+                {this.state.value}
             </button>
         );
     }
 }
 
 class Board extends React.Component{
+
+    constructor(props){
+        super(props);
+
+        this.state = {
+            squares: Array(9).fill(null),
+        }
+    }
+
     renderSquare(i){
         return <Square value={i} />;
     }
