@@ -3,21 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 class Square extends React.Component{
-
-    constructor(props){
-        super(props);//always as in javascript subclasses ( first too)
-
-        this.state = {
-            value:null,
-        }
-    }
-
+    
     render(){
         return (
             <button className="square"
                     onClick={
                         () => {
-                            this.setState({value:'X'})
+                            this.props.onClick();
                         }
                     }>
                 {this.props.value}
@@ -36,8 +28,15 @@ class Board extends React.Component{
         }
     }
 
+    handleClick(){
+        console.log("handle click called!");
+    }
+
     renderSquare(i){
-        return <Square value={this.state.squares[i]} />;
+    return (<Square
+              value={this.state.squares[i]}
+              onClick = {() => this.handleClick(i)}
+             />);
     }
 
     render(){
@@ -64,6 +63,7 @@ class Board extends React.Component{
             </div>
         );
     }
+
 }
 
 class Game extends React.Component{
